@@ -1,5 +1,9 @@
-var stuff=require('./stuff')
+var events=require('events')
 
-console.log(stuff.counter([1,2,3]))
-console.log(stuff.adder(5,6))
-console.log(stuff.adder(stuff.pi,5))
+var myEmitter= new events.EventEmitter()
+
+myEmitter.on('someEvent', function(msg){
+    console.log(msg)
+})
+
+myEmitter.emit('someEvent','the event was emmited')
